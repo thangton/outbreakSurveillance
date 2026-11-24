@@ -14,4 +14,4 @@ jobs:
         run: |
           mkdir -p reads
           for s in S1 S2 S3 S4; do touch reads/${s}_S01_L001_R{1,2}_001.fastq.gz; done
-          nextflow run main.nf -stub --reads 'reads/*_R{1,2}_001.fastq.gz' --outdir stub_results --db_cache stub_db
+          nextflow run main.nf -stub --reads 'reads/*_R{1,2}_001.fastq.gz' --outdir stub_results --db_cache stub_db --max_memory 6.GB
