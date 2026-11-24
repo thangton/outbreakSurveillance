@@ -1,0 +1,17 @@
+name: ci
+on: [push, pull_request]
+
+jobs:
+  stub-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: nf-core/setup-nextflow@v2
+        with: { version: '24.10.4' }
+      - name: Stub run (wiring check, no containers)
+        run: |
+          mkdir -p reads
+          for s in S1 S2 S3 S4; do touch reads/${s}_S01_L001_R{1,2}_001.fastq.gz; done
+          nextflow run main.nf -stub --reads 'reads/*_R{1,2}_001.fastq.gz' --outdir stub_results --db_cache stub_db

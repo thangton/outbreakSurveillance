@@ -1,0 +1,19 @@
+# Nextflow
+work/
+.nextflow/
+.nextflow.log*
+results/
+databases/
+stub_*/
+
+# data
+*.fastq.gz
+*.fq.gz
+
+# original course deliverables (code is merged into this pipeline; data/results too large for git)
+D1-main/
+D2-main/
+D3-main/
+D4-main/
+
+.DS_Store
